@@ -1,6 +1,7 @@
 import React from 'react'
 import {Menu} from 'antd';
 import {UserOutlined, MailOutlined, BookOutlined} from '@ant-design/icons';
+import {NavLink} from "react-router-dom";
 
 const {SubMenu} = Menu;
 
@@ -19,8 +20,12 @@ class NavMenu extends React.Component {
                 mode="inline"
             >
 
-                <Menu.Item key="1"><UserOutlined /> Мой профиль</Menu.Item>
-                <Menu.Item key="2"><BookOutlined />Курсы</Menu.Item>
+                <Menu.Item key="1"><UserOutlined/> Мой профиль</Menu.Item>
+                <Menu.Item key="2">
+                    <NavLink to = '/courses'>
+                        <BookOutlined/>Курсы
+                    </NavLink>
+                </Menu.Item>
 
                 <SubMenu key="sub4" icon={<MailOutlined/>} title="Сообщения">
                     <Menu.Item key="4">Личные сообщения</Menu.Item>
