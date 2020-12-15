@@ -1,6 +1,7 @@
 import React from 'react'
 import { Menu } from 'antd';
-import {BugOutlined} from '@ant-design/icons';
+import {BookOutlined, BugOutlined} from '@ant-design/icons';
+import {NavLink} from "react-router-dom";
 
 class Header extends React.Component {
     state = {
@@ -16,13 +17,16 @@ class Header extends React.Component {
         const { current } = this.state;
         return (
             <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal" theme={"dark"}>
-                <Menu.Item key="mail" icon={<BugOutlined />}>
-                    About Us
+                <Menu.Item key="1">
+                    <NavLink to = '/aboutus'>
+                        <BookOutlined/> About Us
+                    </NavLink>
                 </Menu.Item>
 
             </Menu>
-        );
+    );
     }
 }
 
 export default Header
+
