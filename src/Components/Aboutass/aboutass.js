@@ -12,7 +12,7 @@ function AboutAss() {
         },
         {
             src: 'images/Лиза А.jpg',
-            text: 'Text',
+            text: 'лвлылтьытыоыовоу',
         },
         {
             src: 'images/Лиза Ш.jpg',
