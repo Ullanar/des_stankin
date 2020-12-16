@@ -20,7 +20,13 @@ class NavMenu extends React.Component {
                 mode="inline"
             >
 
-                <Menu.Item key="1"><UserOutlined/> Мой профиль</Menu.Item>
+                <Menu.Item key="1">
+                    <NavLink to = '/profile'>
+
+                    <UserOutlined/> Мой профиль
+                    </NavLink>
+                </Menu.Item>
+
                 <Menu.Item key="2">
                     <NavLink to = '/courses'>
                         <BookOutlined/>Курсы

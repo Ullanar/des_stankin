@@ -6,6 +6,7 @@ import Header from "./Components/AlwaysDisplay/Header/header";
 import NavMenu from "./Components/AlwaysDisplay/NavMenu/navMenu";
 import ContentLayer from "./Components/AlwaysDisplay/ContentLayer/contentLayer";
 
+
 function App() {
     return (
         <div className='app_wrapper'>
@@ -22,6 +23,7 @@ function App() {
                 <div className='content'>
                     <ContentLayer/>
                 </div>
+
             </div>
 
         </div>
