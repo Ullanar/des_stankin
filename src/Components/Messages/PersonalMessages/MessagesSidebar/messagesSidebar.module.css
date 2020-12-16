@@ -1,0 +1,5 @@
+.scrollbox {
+    grid-area: sidebar;
+    overflow: auto;
+    max-height: 850px;
+}

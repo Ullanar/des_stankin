@@ -22,14 +22,25 @@ class NavMenu extends React.Component {
 
                 <Menu.Item key="1"><UserOutlined/> Мой профиль</Menu.Item>
                 <Menu.Item key="2">
-                    <NavLink to = '/courses'>
+                    <NavLink to='/courses'>
                         <BookOutlined/>Курсы
                     </NavLink>
                 </Menu.Item>
 
                 <SubMenu key="sub4" icon={<MailOutlined/>} title="Сообщения">
-                    <Menu.Item key="4">Личные сообщения</Menu.Item>
-                    <Menu.Item key="5">Чат</Menu.Item>
+
+                    <Menu.Item key="4">
+                        <NavLink to='pm'>
+                            Личные сообщения
+                        </NavLink>
+                    </Menu.Item>
+
+                    <Menu.Item key="5">
+                        <NavLink to='chat'>
+                            Чат
+                        </NavLink>
+                    </Menu.Item>
+
                 </SubMenu>
             </Menu>
         );
