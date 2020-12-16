@@ -1,0 +1,12 @@
+.entryField {
+}
+
+.chatWrapper {
+    background-image: url("backgroundChat.png");
+}
+
+.messagesDisplay {
+    padding: 10px;
+    height: 80vh;
+    overflow: auto;
+}

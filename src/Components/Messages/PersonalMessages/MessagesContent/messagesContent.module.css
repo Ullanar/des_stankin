@@ -1,0 +1,33 @@
+.wrapper{
+    display: grid;
+    grid-template-areas:
+            "messages"
+            "controls";
+    grid-template-columns: 1fr;
+    grid-template-rows: 8fr 1fr;
+}
+
+.content{
+    grid-area: messages;
+    background-image: url("backgroundChat.png");
+    padding: 10px;
+    overflow: auto;
+    max-height: 100%;
+}
+
+.controls{
+    grid-area: controls;
+
+}
+.textarea{
+    display: flex;
+}
+
+.sendButton{
+    height: 100px;
+    width: 100px;
+}
+.uploadButton{
+    height: 100px;
+    width: 100%;
+}
