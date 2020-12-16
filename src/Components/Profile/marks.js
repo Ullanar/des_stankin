@@ -7,26 +7,26 @@ const { Column, ColumnGroup } = Table;
 const data = [
     {
         key: '1',
-        firstName: 'John',
-        lastName: 'Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
+        subject: 'Математика',
+        gaps: '3',
+        mark: 32.9,
+        teacher: 'Яновская Елена Александровна',
         tags: ['nice', 'developer'],
     },
     {
         key: '2',
-        firstName: 'Jim',
-        lastName: 'Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
+        subject: 'Информатика',
+        gaps: '0',
+        mark: 42,
+        teacher: 'Чеканин Владислав Александрович',
         tags: ['loser'],
     },
     {
         key: '3',
-        firstName: 'Joe',
-        lastName: 'Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
+        subject: 'Русский язык',
+        gaps: '2',
+        mark: 50.6,
+        teacher: 'Трофимова Галина Константиновна',
         tags: ['cool', 'teacher'],
     },
 ];
@@ -38,33 +38,20 @@ function Marks() {
     return (
         <div>
             <Table dataSource={data}>
-                <ColumnGroup title="Name">
-                    <Column title="First Name" dataIndex="firstName" key="firstName" />
-                    <Column title="Last Name" dataIndex="lastName" key="lastName" />
+                <ColumnGroup title="">
+                    <Column title="Предмет" dataIndex="subject" key="1" />
+                    <Column title="Пропуски" dataIndex="gaps" key="2" />
                 </ColumnGroup>
-                <Column title="Age" dataIndex="age" key="age" />
-                <Column title="Address" dataIndex="address" key="address" />
+                <Column title="Текущая оценка" dataIndex="mark" key="3" />
+                <Column title="Преподаватель" dataIndex="teacher" key="4" />
+
                 <Column
-                    title="Tags"
-                    dataIndex="tags"
-                    key="tags"
-                    render={tags => (
-                        <>
-                            {tags.map(tag => (
-                                <Tag color="blue" key={tag}>
-                                    {tag}
-                                </Tag>
-                            ))}
-                        </>
-                    )}
-                />
-                <Column
-                    title="Action"
+                    title="Действия"
                     key="action"
                     render={(text, record) => (
                         <Space size="middle">
-                            <a>Invite {record.lastName}</a>
-                            <a>Delete</a>
+                            <a>Курс {record.lastName}</a>
+                            <a>Подробнее</a>
                         </Space>
                     )}
                 />
