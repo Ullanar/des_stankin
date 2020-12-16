@@ -9,7 +9,7 @@
 
 .content{
     grid-area: messages;
-    background-image: url("backgroundChat.png");
+    background-image: url("backgroundChat.jpg");
     padding: 10px;
     overflow: auto;
     max-height: 100%;
