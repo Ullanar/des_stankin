@@ -11,15 +11,17 @@ let initialState = {
 
     marks: [
         {
+            id: 1,
             subject: 'Математика',
             gaps: 3,
-            currentMark: 47.8,
+            mark: 47.8,
             teacher: 'Яновская Елена Александровна',
         },
         {
+            id: 2,
             subject: 'Информатика',
             gaps: 1,
-            currentMark: 49.8,
+            mark: 49.8,
             teacher: 'Чеканин Владислав Александрович',
         },
     ]

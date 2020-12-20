@@ -6,29 +6,7 @@ const { Column, ColumnGroup } = Table;
 
 
 function Marks(props) {
-    const data = [
-        {
-            key: '1',
-            subject: 'Математика',
-            gaps: '3',
-            mark: 32.9,
-            teacher: 'Яновская Елена Александровна',
-        },
-        {
-            key: '2',
-            subject: 'Информатика',
-            gaps: '0',
-            mark: 42,
-            teacher: 'Чеканин Владислав Александрович',
-        },
-        {
-            key: '3',
-            subject: 'Русский язык',
-            gaps: '2',
-            mark: 50.6,
-            teacher: 'Трофимова Галина Константиновна',
-        },
-    ];
+    const data = props.marks
     return (
         <div>
             <Table dataSource={data}>

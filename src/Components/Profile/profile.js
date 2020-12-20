@@ -59,7 +59,7 @@ function Profile(props) {
             </div>
             </div>
 
-            <Marks/>
+            <Marks marks = {props.marks}/>
 
 
         </div>)
@@ -74,7 +74,8 @@ export default connect (
         firstName: state.profile.firstName,
         lastName: state.profile.lastName,
         group: state.profile.group,
-        email: state.profile.email
+        email: state.profile.email,
+        marks: state.profile.marks
 
     }),
     dispatch => ({
