@@ -3,14 +3,15 @@ import {Card, Avatar} from 'antd';
 import css from './profile.module.css';
 import {List, Typography, Divider} from 'antd';
 import Marks from "./marks";
+import {connect} from "react-redux";
 
 
-function Profile() {
+function Profile(props) {
     const {Meta} = Card;
     const data = [
-        'Номер телефона: 89011111111',
-        'Дата рождения: 12.34.5678',
-        'Почта: ya.samiy.krutoi@mail.ru',
+        'Номер телефона: ' + props.phone,
+        'Дата рождения: ' + props.birthday,
+        'Почта: ' + props.email,
     ];
 
     return (
@@ -23,8 +24,8 @@ function Profile() {
 
 
                 <Meta className={css.photo}
-                      title="Фамилия Имя"
-                      description="Группа"
+                      title = {props.firstName + ' ' + props.lastName}
+                      description= {props.group}
                 />
             <div className={css.infoWrapper}>
                 <Card className={css.inform}
@@ -66,4 +67,17 @@ function Profile() {
 }
 
 
-export default Profile
+export default connect (
+    state => ({
+        phone: state.profile.phone,
+        birthday: state.profile.birthday,
+        firstName: state.profile.firstName,
+        lastName: state.profile.lastName,
+        group: state.profile.group,
+        email: state.profile.email
+
+    }),
+    dispatch => ({
+
+    })
+)(Profile)

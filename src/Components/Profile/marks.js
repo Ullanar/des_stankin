@@ -4,37 +4,31 @@ import { Table, Tag, Space } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
-const data = [
-    {
-        key: '1',
-        subject: 'Математика',
-        gaps: '3',
-        mark: 32.9,
-        teacher: 'Яновская Елена Александровна',
-        tags: ['nice', 'developer'],
-    },
-    {
-        key: '2',
-        subject: 'Информатика',
-        gaps: '0',
-        mark: 42,
-        teacher: 'Чеканин Владислав Александрович',
-        tags: ['loser'],
-    },
-    {
-        key: '3',
-        subject: 'Русский язык',
-        gaps: '2',
-        mark: 50.6,
-        teacher: 'Трофимова Галина Константиновна',
-        tags: ['cool', 'teacher'],
-    },
-];
 
-
-
-
-function Marks() {
+function Marks(props) {
+    const data = [
+        {
+            key: '1',
+            subject: 'Математика',
+            gaps: '3',
+            mark: 32.9,
+            teacher: 'Яновская Елена Александровна',
+        },
+        {
+            key: '2',
+            subject: 'Информатика',
+            gaps: '0',
+            mark: 42,
+            teacher: 'Чеканин Владислав Александрович',
+        },
+        {
+            key: '3',
+            subject: 'Русский язык',
+            gaps: '2',
+            mark: 50.6,
+            teacher: 'Трофимова Галина Константиновна',
+        },
+    ];
     return (
         <div>
             <Table dataSource={data}>
