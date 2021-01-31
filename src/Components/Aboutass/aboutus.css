@@ -1,3 +1,9 @@
 img{
     height: 200px;
 }
+
+.test_block{
+    text-align: center;
+    font-size: large;
+    margin-bottom: 50px;
+}

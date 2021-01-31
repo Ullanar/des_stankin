@@ -1,10 +1,18 @@
 import React from 'react'
 import {Card, Row, Col} from 'antd';
 import "./aboutus.css"
+import {connect} from "react-redux";
+import {setTitleAC} from "../../Redux/mainReducer";
 
 const {Meta} = Card;
 
-function AboutAss() {
+function AboutAss(props) {
+
+    console.log(props)
+
+    const inputRef = React.createRef()
+
+
     const imgSources = [
         {
             src: 'images/lev.jpg',
@@ -35,9 +43,31 @@ function AboutAss() {
             description:'Telegram: @AlexOsi02'
         },
     ]
+
+
+    let handleSubmit = () => {
+        let testData = inputRef.current.value
+        props.setNewTitle(testData)
+    }
+
+
     return (
         <div style={wrapperStyle}>
             <h1 align="center"><b>About Us</b></h1>
+
+            <div className='test_block'>
+                {props.test}
+
+                <div>
+                    <input ref={inputRef}/>
+                </div>
+
+                <div>
+                    <button onClick={handleSubmit}>Отправить данные</button>
+                </div>
+
+            </div>
+
             <p><h2 align="center">Мы перспективная команда разработчиков, которая изменит мир дистанционного образования в лучшую сторону!</h2></p>
             <Row justify='center' wrap>
                 {imgSources.map((item, i) => (
@@ -63,4 +93,16 @@ const wrapperStyle = {
     padding: 20
 }
 
-export default AboutAss
+
+export default connect(
+    state => ({
+        test: state.main.test,
+    }),
+    dispatch => ({
+
+        setNewTitle: (text) => {
+            dispatch(setTitleAC(text))
+        }
+    })
+)(AboutAss)
+

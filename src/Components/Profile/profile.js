@@ -23,10 +23,10 @@ function Profile(props) {
             </h1>
 
 
-                <Meta className={css.photo}
-                      title = {props.firstName + ' ' + props.lastName}
-                      description= {props.group}
-                />
+            <Meta className={css.photo}
+                  title={props.firstName + ' ' + props.lastName}
+                  description={props.group}
+            />
             <div className={css.infoWrapper}>
                 <Card className={css.inform}
                       style={{width: 200}}
@@ -44,22 +44,22 @@ function Profile(props) {
                 >
 
                 </Card>
-            <div>
+                <div>
 
-                {/*<Divider className = {css.info}>Информация</Divider>*/}
-                <List className={css.info}
-                      size="big"
-                      header={<div>Был(а) в сети 1 час назад</div>}
-                      footer={<div>Статус</div>}
-                    // bordered
-                      dataSource={data}
-                      renderItem={item => <List.Item>{item}</List.Item>}
-                />
+                    {/*<Divider className = {css.info}>Информация</Divider>*/}
+                    <List className={css.info}
+                          size="big"
+                          header={<div>Был(а) в сети 1 час назад</div>}
+                          footer={<div>Статус</div>}
+                        // bordered
+                          dataSource={data}
+                          renderItem={item => <List.Item>{item}</List.Item>}
+                    />
 
+                </div>
             </div>
-            </div>
 
-            <Marks marks = {props.marks}/>
+            <Marks marks={props.marks}/>
 
 
         </div>)
@@ -67,7 +67,7 @@ function Profile(props) {
 }
 
 
-export default connect (
+export default connect(
     state => ({
         phone: state.profile.phone,
         birthday: state.profile.birthday,
@@ -78,7 +78,5 @@ export default connect (
         marks: state.profile.marks
 
     }),
-    dispatch => ({
-
-    })
+    dispatch => ({})
 )(Profile)
