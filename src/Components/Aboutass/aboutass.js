@@ -1,90 +1,36 @@
-import React from 'react'
-import {Card, Row, Col} from 'antd';
+import React, {useEffect} from 'react'
 import "./aboutus.css"
 import {connect} from "react-redux";
-import {setTitleAC} from "../../Redux/mainReducer";
+import {setUsersAC} from "../../Redux/mainReducer";
+import * as axios from "axios";
+import UserTitle from "./userTitle";
 
-const {Meta} = Card;
 
 function AboutAss(props) {
 
-    console.log(props)
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/users').then(
+            res => {
+                props.setUsers(res.data)
+                console.log('test')
+            }
+        )
+    })
 
-    const inputRef = React.createRef()
+    let userTitles = null
 
-
-    const imgSources = [
-        {
-            src: 'images/lev.jpg',
-            name: 'Лев Бубнов',
-            text:'-Full Stack Dev.',
-            text1:'-Team Lead',
-            description:'Telegram: @ullanar'
-        },
-        {
-            src: 'images/Лиза А.jpg',
-            name: 'Акманова Лиза',
-            text: '-FrontEnd Dev.',
-            text1: '-QA',
-            description:'Telegram: @akmanova'
-        },
-        {
-            src: 'images/Лиза Ш.jpg',
-            name: 'Шайгородская Лиза',
-            text: '-FrontEnd Dev.',
-            text1: '-UI/UX',
-            description:'Telegram: @shveyga'
-        },
-        {
-            src: 'images/Леха.jpg',
-            name: 'Осипов Алексей',
-            text: '-DevOps',
-            text1: '-BackEnd Dev.',
-            description:'Telegram: @AlexOsi02'
-        },
-    ]
-
-
-    let handleSubmit = () => {
-        let testData = inputRef.current.value
-        props.setNewTitle(testData)
+    if (props.userData !== null) {
+        userTitles = props.userData.map(user => <UserTitle name = {user.name} email = {user.email}/>)
     }
 
 
     return (
         <div style={wrapperStyle}>
-            <h1 align="center"><b>About Us</b></h1>
 
             <div className='test_block'>
-                {props.test}
-
-                <div>
-                    <input ref={inputRef}/>
-                </div>
-
-                <div>
-                    <button onClick={handleSubmit}>Отправить данные</button>
-                </div>
-
+                {userTitles !== null && userTitles}
             </div>
 
-            <p><h2 align="center">Мы перспективная команда разработчиков, которая изменит мир дистанционного образования в лучшую сторону!</h2></p>
-            <Row justify='center' wrap>
-                {imgSources.map((item, i) => (
-                    <Col className="gutter-row" span={5}>
-                        <Card
-                            hoverable
-                            style={{ width: 210 }}
-                            cover={<img alt="" src={item.src}/>}
-                        >
-                            <Meta title={item.name}/>
-                            <Meta title={item.text}/>
-                            <Meta title={item.text1}/>
-                            <Meta description={item.description}/>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
         </div>
     )
 }
@@ -96,12 +42,12 @@ const wrapperStyle = {
 
 export default connect(
     state => ({
-        test: state.main.test,
+        userData: state.main.usersData,
     }),
     dispatch => ({
 
-        setNewTitle: (text) => {
-            dispatch(setTitleAC(text))
+        setUsers: (usersData) => {
+            dispatch(setUsersAC(usersData))
         }
     })
 )(AboutAss)

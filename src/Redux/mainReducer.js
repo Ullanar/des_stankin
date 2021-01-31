@@ -1,31 +1,30 @@
-const SET_NEW_TITLE = 'SET_NEW_TITLE'
+const SET_USERS_DATA = 'SET_USERS_DATA'
 
 
 let initialState = {
-    test: 'Hello World'
+    usersData: null
 }
 
 export default function mainReducer(state = initialState, action) {
 
     switch (action.type) {
 
-        case SET_NEW_TITLE:
+        case SET_USERS_DATA:
 
             return {
                 ...state,
-                test: action.newTitle
+                usersData: action.usersData
             }
 
         default:
             return state
     }
-
 }
 
 
-export function setTitleAC (text) {
+export function setUsersAC(usersData) {
     return {
-        type: SET_NEW_TITLE,
-        newTitle: text
+        type: SET_USERS_DATA,
+        usersData: usersData
     }
 }
