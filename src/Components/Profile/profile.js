@@ -1,12 +1,39 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Card, Avatar} from 'antd';
 import css from './profile.module.css';
 import {List, Typography, Divider} from 'antd';
 import Marks from "./marks";
-import {connect} from "react-redux";
+import * as axios from "axios";
+import {connect, useDispatch, useSelector} from "react-redux";
+import {setProfileDataAC} from "../../Redux/profileReducer";
+import {setMarksDataAC} from "../../Redux/marksReduser";
+
+
 
 
 function Profile(props) {
+
+    const dispatch = useDispatch ()
+    const profileData = useSelector(state => state.profile.profileData)
+    const marksData = useSelector(state => state.marks.profileData)
+
+    useEffect(() => {
+        axios.get ('https://jsonplaceholder.typicode.com/users'). then (
+            res => {
+                dispatch(setProfileDataAC(res.data))
+            }
+        )
+        axios.get ('https://jsonplaceholder.typicode.com/users'). then (
+            res => {
+                dispatch(setMarksDataAC(res.data))
+            }
+        )
+    }, [])
+
+    if (profileData !== null){
+        console.log(profileData)
+    }
+
     const {Meta} = Card;
     const data = [
         'Номер телефона: ' + props.phone,

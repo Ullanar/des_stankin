@@ -50,7 +50,8 @@ function Courses() {
             <Card className={css.cards}
                   hoverable
                   style={{width: 240}}
-                  cover={<img alt="Физика" src="https://ab-news.ru/wp-content/uploads/2019/09/3343434444322.jpg"
+                  cover={<img alt="Физика"
+                              src="https://ab-news.ru/wp-content/uploads/2019/09/3343434444322.jpg"
                               height="140"/>}>
                 <Meta title="Физика"/>
             </Card>
@@ -65,7 +66,8 @@ function Courses() {
             <Card className={css.cards}
                   hoverable
                   style={{width: 240}}
-                  cover={<img alt="Обществознание" src="https://businessman.ru/static/img/a/46104/400224/67573.jpg"
+                  cover={<img alt="Обществознание"
+                              src="https://businessman.ru/static/img/a/46104/400224/67573.jpg"
                               height="140"/>}>
                 <Meta title="Обществознание"/>
             </Card>

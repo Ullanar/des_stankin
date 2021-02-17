@@ -1,3 +1,5 @@
+const SET_PROFILE_DATA = "SET_PROFILE_DATA"
+
 let initialState = {
 
     firstName: 'Елизавета',
@@ -29,8 +31,21 @@ let initialState = {
 }
 
 export default function profileReducer(state = initialState, action) {
-    switch (action.type){
+    switch (action.type) {
+        case SET_PROFILE_DATA:
+            return {
+                ...state,
+                profileData: action.profileData
+            }
+
         default:
             return state
+    }
+}
+
+export const setProfileDataAC = (data) => {
+    return {
+        type: SET_PROFILE_DATA,
+        profileData: data
     }
 }
